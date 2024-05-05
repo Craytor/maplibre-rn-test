@@ -36,5 +36,6 @@ target 'test' do
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+    $RNMBGL.post_install(installer)
   end
 end
