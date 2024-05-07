@@ -34,32 +34,6 @@ import MapLibreGL from '@maplibre/maplibre-react-native';
 // Required on Android. See Android installation notes.
 MapLibreGL.setAccessToken(null);
 
-function Section({ children, title }: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
 const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
@@ -97,14 +71,14 @@ function App(): React.JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
 
-      <View>
-        <MapLibreGL.MapView
-          styleURL='https://wxlogic.nyc3.digitaloceanspaces.com/maps/20240114-basic-map.json'
-          style={styles.map}
-        >
-          <MapLibreGL.Camera />
-        </MapLibreGL.MapView>
-      </View>
+
+      <MapLibreGL.MapView
+        styleURL='https://demotiles.maplibre.org/style.json'
+        style={styles.map}
+      >
+        <MapLibreGL.Camera />
+      </MapLibreGL.MapView>
+
 
     </SafeAreaView>
   );
